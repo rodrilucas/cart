@@ -3,12 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Carrinho de Compras</title>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <div class="header-top">
+        <h1 class="title">Restaurante</h1>
+        <div class="right">
+          <form class="form-search" action="">
+            <fieldset class="fieldset-search">
+              <legend class="legend-search" aria-hidden="true">
+                Buscar Pratos
+              </legend>
+              <label class="search" for="search">
+                <button
+                  aria-label="Botão de procurar pratos"
+                  class="search-icon"
+                ></button>
+                <input
+                  placeholder="Procurar pratos"
+                  class="input-search"
+                  id="search"
+                  type="text"
+                />
+              </label>
+            </fieldset>
+          </form>
+          <nav class="navigation">
+            <span class="cart">
+              <span class="quantity">2</span>
+            </span>
+            <button class="sign">Entrar</button>
+          </nav>
+        </div>
+      </div>
+      <div class="header-content">
+        <div class="content">
+          <h2 class="content-title">
+            Qualidade <span class="premium">Premium</span>
+            <span class="break">
+              Vários tipos
+              <span class="health">saudáveis</span>
+            </span>
+            <span class="day">Para o seu dia a dia.</span>
+          </h2>
+          <p class="content-description">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus,
+            iure id inventore nulla quae laudantium dolorum cum culpa placeat
+            repellat expedita omnis architecto, vero, praesentium tempora
+            laboriosam dolorem velit explicabo!
+          </p>
+          <div class="clients">
+            <h3 class="clients-title">Clientes populares</h3>
+            <ul class="clients-list">
+              <li>Hyderabad</li>
+              <li>Chennai</li>
+              <li>Mumbai</li>
+              <li>Bangalore</li>
+              <li>Delhi</li>
+              <li>Kolkata</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid-container">
+          <picture class="grid-item__principal">
+            <img
+              class="grind-item__princiapl"
+              src="/img/images/principal.png"
+              alt="Mesa com pratos de comidas."
+            />
+          </picture>
+          <picture class="grid-item__secondary">
+            <img
+              src="/img/images/secondary.png"
+              alt="Mesa com pratos de comidas."
+            />
+          </picture>
+          <picture class="grid-item__tertiary">
+            <img
+              src="/img/images/tertiary.png"
+              alt="Mesa com pratos de comidas."
+            />
+          </picture>
+        </div>
+      </div>
+    </header>
+  </body>
 </html>
