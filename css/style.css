@@ -1,0 +1,23 @@
+:root {
+    
+  --primary-900: hsl(27, 97%, 54%);
+  --primary-700: hsl(27, 97%, 54%);
+  --primary-100: hsl(37, 100%, 91%);
+
+  --neutral-800: hsl(0, 0%, 13%);
+  --neutral-600: hsl(0, 0%, 25%);
+
+  --red-100: hsl(0, 100%, 91%);
+
+  --white-900: hsl(0, 0%, 100%);
+  --white-800: hsl(20, 43%, 99%);
+  --white-300: hsl(0, 0%, 97%);
+
+  --gray-600: hsl(0, 0%, 50%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
