@@ -12,6 +12,8 @@
     <title>Carrinho de Compras</title>
   </head>
   <body>
+    <div class="modal hidden" aria-hidden="true">
+    </div>
     <header class="header">
       <div class="header-top">
         <h1 class="title">Restaurante</h1>
@@ -22,10 +24,10 @@
                 Buscar Pratos
               </legend>
               <label class="search" for="search">
-                <button
+                <span
                   aria-label="Botão de procurar pratos"
                   class="search-icon"
-                ></button>
+                ></span>
                 <input
                   placeholder="Procurar pratos"
                   class="input-search"
@@ -37,7 +39,7 @@
           </form>
           <nav class="navigation">
             <span class="cart">
-              <span class="quantity">2</span>
+              <span class="quantity">0</span>
             </span>
             <button class="sign">Entrar</button>
           </nav>
@@ -95,23 +97,7 @@
       </div>
     </header>
     <main>
-      <section class="container">
-        <div class="card">
-          <picture class="image">
-            <img src="/img/images/aloo.png" alt="" />
-          </picture>
-          <h4 class="card-title">Aloo</h4>
-          <div class="avaliation">
-            <p>Lorem ipsum.</p>
-            <span class="star">4.5</span>
-          </div>
-          <div class="values">
-            <span class="value">R$35</span>
-            <span class="mins">25 mins</span>
-          </div>
-          <button class="card-button">Carrinho</button>
-        </div>
-      </section>
+      <section class="container"></section>
     </main>
     <footer>
       <div class="footer">
@@ -132,5 +118,6 @@
         </div>
       </div>
     </footer>
+    <script type="module" src="/js/app.js"></script>
   </body>
 </html>
