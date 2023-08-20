@@ -12,7 +12,27 @@
     <title>Carrinho de Compras</title>
   </head>
   <body>
-    <div class="modal hidden" aria-hidden="true">
+    <div class="modal hidden" aria-hidden="true"></div>
+    <div class="cart-container hidden" aria-hidden="true">
+      <div class="cart-items">
+        <div>
+          <div class="cart-items__total">
+            <h5 class="cart color">Carrinho</h5>
+            <p class="cart-quantity">Total de items 0</p>
+          </div>
+          <ul class="cart-list">
+            <h6 class="cart-list__title">Meus items</h6>
+          </ul>
+        </div>
+        <div class="cart-value">
+          <div class="cart-value__items">
+            <h6>Total</h6>
+            <p class="cart-value__total">R$ 84545</p>
+          </div>
+          <button class="cart-checkout">Prosseguir</button>
+        </div>
+      </div>
+      <button class="cart-close">X</button>
     </div>
     <header class="header">
       <div class="header-top">
@@ -76,7 +96,7 @@
         <div class="grid-container">
           <picture class="grid-item__principal">
             <img
-              class="grind-item__princiapl"
+              class="grid-item__princiapl"
               src="/img/images/principal.png"
               alt="Mesa com pratos de comidas."
             />
