@@ -3,7 +3,7 @@ const products = [
     index: 1,
     title: "Pasteis",
     description: "lorem ipsulum dolor",
-    img: "/img/images/aloo.png",
+    img: "./img/images/aloo.png",
     value: 35,
     rating: 4.5,
     deliveryTime: 25,
@@ -13,7 +13,7 @@ const products = [
 
     title: "Bolinho de nozes",
     description: "lorem ipsulum dolor",
-    img: "/img/images/bakked.png",
+    img: "./img/images/bakked.png",
     value: 55,
     rating: 4.5,
     deliveryTime: 25,
@@ -22,7 +22,7 @@ const products = [
     index: 3,
     title: "Bowl",
     description: "lorem ipsulum dolor",
-    img: "/img/images/bowl.png",
+    img: "./img/images/bowl.png",
     value: 78,
     rating: 4.1,
     deliveryTime: 35,
@@ -31,7 +31,7 @@ const products = [
     index: 4,
     title: "Mexicano",
     description: "lorem ipsulum dolor",
-    img: "/img/images/mexican.png",
+    img: "./img/images/mexican.png",
     value: 12,
     rating: 3.8,
     deliveryTime: 10,
@@ -40,7 +40,7 @@ const products = [
     index: 5,
     title: "Mix de Frutas",
     description: "lorem ipsulum dolor",
-    img: "/img/images/mixed.png",
+    img: "./img/images/mixed.png",
     value: 78,
     rating: 4.5,
     deliveryTime: 50,
@@ -49,7 +49,7 @@ const products = [
     index: 6,
     title: "Sopa Panner",
     description: "lorem ipsulum dolor",
-    img: "/img/images/panner.png",
+    img: "./img/images/panner.png",
     value: 85,
     rating: 4.1,
     deliveryTime: 30,
@@ -58,7 +58,7 @@ const products = [
     index: 7,
     title: "Pizza",
     description: "lorem ipsulum dolor",
-    img: "/img/images/pizza.png",
+    img: "./img/images/pizza.png",
     value: 75,
     rating: 4.0,
     deliveryTime: 35,
@@ -67,7 +67,7 @@ const products = [
     index: 8,
     title: "Ramachandra",
     description: "lorem ipsulum dolor",
-    img: "/img/images/ramachandra.png",
+    img: "./img/images/ramachandra.png",
     value: 25,
     rating: 4.9,
     deliveryTime: 55,
@@ -76,7 +76,7 @@ const products = [
     index: 9,
     title: "Frango Empanado",
     description: "lorem ipsulum dolor",
-    img: "/img/images/southwest.png",
+    img: "./img/images/southwest.png",
     value: 45,
     rating: 4.5,
     deliveryTime: 25,
@@ -85,7 +85,7 @@ const products = [
     index: 10,
     title: "Swap de Nozes",
     description: "lorem ipsulum dolor",
-    img: "/img/images/swap.png",
+    img: "./img/images/swap.png",
     value: 105,
     rating: 4.5,
     deliveryTime: 25,
@@ -94,7 +94,7 @@ const products = [
     index: 11,
     title: "Vegetariano",
     description: "lorem ipsulum dolor",
-    img: "/img/images/vegetarian.png",
+    img: "./img/images/vegetarian.png",
     value: 45,
     rating: 3.8,
     deliveryTime: 45,
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const image = this.createElement({
         type: "img",
       });
-      image.src = product.img;
+      image.src = `${product.img}`;
       image.alt = "";
 
       imagePicture.append(image);
@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const img = this.createElement({
         type: "img",
       });
-      img.src = product.img;
+      img.src = `${product.img}`;
       picture.append(img);
 
       const h4 = this.createElement({
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const spanValues = this.createElement({
         type: "span",
         className: "value",
-        text: product.value.toFixed(2),
+        text: `R$ ${product.value.toFixed(2)}`,
       });
       const spanMins = this.createElement({
         type: "span",

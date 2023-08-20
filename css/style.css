@@ -64,7 +64,7 @@ body {
   content: "";
   width: 24px;
   height: 22px;
-  background-image: url("/img/icons/logo.svg");
+  background-image: url("../img/icons/logo.svg");
 }
 
 .right {
@@ -107,7 +107,7 @@ body {
   content: "";
   width: 21px;
   height: 21px;
-  background-image: url("/img/icons/search.svg");
+  background-image: url("../img/icons/search.svg");
 }
 
 .input-search {
@@ -139,7 +139,7 @@ body {
   content: "";
   width: 30px;
   height: 31px;
-  background-image: url("/img/icons/bag.svg");
+  background-image: url("../img/icons/bag.svg");
 }
 
 .quantity {
@@ -197,14 +197,14 @@ body {
   content: "";
   width: 125px;
   height: 75px;
-  background-image: url("/img/icons/banana.svg");
+  background-image: url("../img/icons/banana.svg");
 }
 
 .day::before {
   content: "";
   width: 125px;
   height: 75px;
-  background-image: url("/img/icons/apple.svg");
+  background-image: url("../img/icons/apple.svg");
 }
 
 .break {
@@ -235,7 +235,7 @@ body {
   content: "";
   width: 48px;
   height: 48px;
-  background-image: url("/img/icons/bagheart.svg");
+  background-image: url("../img/icons/bagheart.svg");
 }
 
 .clients-list {
@@ -322,15 +322,15 @@ body {
 }
 
 .star::before {
-  background-image: url("/img/icons/star.svg");
+  background-image: url("../img/icons/star.svg");
 }
 
 .value::before {
-  background-image: url("/img/icons/label.svg");
+  background-image: url("../img/icons/label.svg");
 }
 
 .mins::before {
-  background-image: url("/img/icons/person.svg");
+  background-image: url("../img/icons/person.svg");
 }
 
 .avaliation,
@@ -421,15 +421,15 @@ footer > * {
 }
 
 .instagram {
-  background-image: url("/img/icons/instagram.svg");
+  background-image: url("../img/icons/instagram.svg");
 }
 
 .facebook {
-  background-image: url("/img/icons/facebook.svg");
+  background-image: url("../img/icons/facebook.svg");
 }
 
 .twitter {
-  background-image: url("/img/icons/twitter.svg");
+  background-image: url("../img/icons/twitter.svg");
 }
 
 /*  */
@@ -509,15 +509,15 @@ footer > * {
 }
 
 .ratings-stars::before {
-  background-image: url("/img/icons/star2.svg");
+  background-image: url("../img/icons/star2.svg");
 }
 
 .time-mins::before {
-  background-image: url("/img/icons/hand.svg");
+  background-image: url("../img/icons/hand.svg");
 }
 
 .total-value::before {
-  background-image: url("/img/icons/label.svg");
+  background-image: url("../img/icons/label.svg");
 }
 
 .add-item {
