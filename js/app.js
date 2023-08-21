@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     openCart() {
       this._cart.classList.remove("hidden");
       this._cart.classList.add("animation-cart");
-      this._ariaHiddenCart(true);
+      this._ariaHiddenCart(false);
     }
 
     closeCart() {
       this._cart.classList.remove("animation-cart");
       this._cart.classList.add("hidden");
-      this._ariaHiddenCart(false);
+      this._ariaHiddenCart(true);
     }
 
     _ariaHiddenCart(value) {
