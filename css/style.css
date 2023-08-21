@@ -37,19 +37,19 @@ body {
 .header-top,
 .right {
   justify-content: space-between;
-  padding: 1em 4em;
   align-items: center;
 }
 
 .header-top {
-  position: fixed;
+  padding: 1em 4em;
   width: 100%;
+  height: max-content;
   background-color: var(--white-900);
 }
 
 .header {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
 }
 
@@ -88,16 +88,17 @@ body {
 .search {
   position: relative;
   border: 1px solid #d0d7de;
-  padding: 0.5em 1em;
+  padding: 1em;
   border-radius: 0.625em;
-  width: 650px;
+  width: 380px;
+  display: flex;
 }
 
 .search-icon {
   display: inline-flex;
   position: absolute;
   right: 8px;
-  top: 8px;
+  top: 12px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -127,6 +128,7 @@ body {
   display: inline-flex;
   align-items: center;
   column-gap: 2rem;
+  position: relative;
 }
 
 .cart {
@@ -172,45 +174,39 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 4em;
-  overflow-x: hidden;
-  margin: auto 0;
+  column-gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 8.75rem;
 }
 
 .content {
-  width: 45vw;
+  width: 40%;
+  min-width: 660px;
+  flex-grow: 1;
 }
 
 .content-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 .premium,
 .health,
 .day {
   color: var(--primary-900);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.health::before {
-  content: "";
-  width: 125px;
-  height: 75px;
-  background-image: url("../img/icons/banana.svg");
-}
-
-.day::before {
-  content: "";
-  width: 125px;
-  height: 75px;
-  background-image: url("../img/icons/apple.svg");
+.health {
+  margin-left: 0.25em;
 }
 
 .break {
-  display: block;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .content-description {
@@ -242,6 +238,7 @@ body {
   display: flex;
   column-gap: 2rem;
   margin-top: 1em;
+  flex-wrap: wrap;
 }
 
 .clients-list li {
@@ -261,6 +258,9 @@ body {
   grid-template-columns: repeat(2, max-content) 80px;
   grid-template-rows: 80px 1fr 80px;
   column-gap: 2rem;
+  width: 40vw;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .grid-item__principal {
@@ -272,7 +272,7 @@ body {
 }
 
 .grid-item__tertiary {
-  grid-row: 2 / 4;
+  grid-row: 3 / -3;
 }
 
 /*  */
@@ -302,7 +302,7 @@ body {
 
 .image img {
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .star,
@@ -379,6 +379,8 @@ footer > * {
 
 .footer {
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .links {
@@ -442,8 +444,8 @@ footer > * {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #d0d7ded3;
   display: flex;
   align-items: center;
@@ -463,6 +465,7 @@ footer > * {
   z-index: 4;
   border: 4px solid var(--white-300);
   border-radius: 1em;
+  gap: 2rem;
 }
 
 .modal-item,
@@ -479,12 +482,16 @@ footer > * {
   justify-content: center;
 }
 
-.item-information h3 {
-  font-size: 1.85rem;
+.modal-item {
+  flex-wrap: wrap;
 }
 
-.item-description > *:not(:nth-child(3)) {
-  border-right: 1px solid var(--white-900);
+.item-information {
+  flex-grow: 1;
+}
+
+.item-information h3 {
+  font-size: 1.85rem;
 }
 
 .item-description > * {
@@ -521,9 +528,9 @@ footer > * {
 }
 
 .add-item {
-  margin-left: 4em;
   padding: 2em;
   border: 2px dashed var(--primary-900);
+  flex-grow: 1;
 }
 
 .close {
@@ -592,7 +599,7 @@ footer > * {
   position: fixed;
   background-color: var(--white-900);
   right: 0;
-  width: 40vw;
+  width: 50%;
   height: 100vh;
   z-index: 4;
   padding: 2em;
@@ -600,7 +607,8 @@ footer > * {
 }
 
 .cart-items {
-  width: 40vw;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
 }
 
@@ -705,14 +713,170 @@ footer > * {
 
 .cart-close {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8px;
+  left: 8px;
   border: none;
   color: var(--primary-900);
   font-weight: 800;
   font-size: 1.5rem;
   background: transparent;
   cursor: pointer;
+}
+
+/*  */
+
+/* Botão Hamburguer */
+
+.button-hamburguer {
+  --button-color: white;
+  overflow: hidden;
+  border: none;
+  background-color: var(--primary-900);
+  border-radius: 0.5em;
+  display: none;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  cursor: pointer;
+}
+
+.button-hamburguer .hamburger {
+  transition: translate 0.5, rotate 0.5s;
+}
+
+.button-hamburguer[aria-expanded="true"] .hamburger {
+  translate: 3px -2px;
+  rotate: 0.125turn;
+}
+
+.button-hamburguer .line {
+  transition: 0.5s;
+  stroke-dasharray: 60 31 60 300;
+}
+
+.button-hamburguer[aria-expanded="true"] .line {
+  stroke-dasharray: 60 105 60 300;
+  stroke-dashoffset: -90;
+}
+
+/*  */
+
+/* Fixar topo */
+
+.fixed-menu {
+  position: fixed;
+  animation: fadeIn 0.2s ease; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*  */
+
+/* Responsivo */
+
+@media only screen and (max-width: 992px) {
+  .button-hamburguer {
+    display: block;
+  }
+
+  .content {
+    min-width: 100%;
+  }
+
+  .cart-list__name {
+    flex-direction: column;
+  }
+
+  .form-search {
+    order: 1;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .grid-item__principal {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .grid-item__secondary {
+    grid-column: 2 / 3;
+    grid-row: 2;
+  }
+
+  .grid-item__tertiary {
+    grid-column: 1 / 2;
+    grid-row: 2;
+  }
+
+  .header-top,
+  .right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-item {
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+  }
+
+  .right {
+    row-gap: 1rem;
+    margin-top: 1em;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .cart-container {
+    width: 100%;
+  }
+
+  .footer {
+    gap: 2rem;
+  }
+
+  .health {
+    margin-left: 0;
+  }
+
+  .item-description {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item-description h5 {
+    font-size: 1rem;
+  }
+
+  .links {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 523px) {
+  .item-information > h3 {
+    font-size: 1.25rem;
+  }
+  .modal-item picture {
+    width: 140px;
+    height: 140px;
+  }
+
+  .modal-item img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /*  */
