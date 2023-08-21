@@ -38,7 +38,7 @@
       <div class="header-top">
         <h1 class="title">Restaurante</h1>
         <div class="right">
-          <form class="form-search" action="">
+          <form class="form-search" action="" id="controls-navigation">
             <fieldset class="fieldset-search">
               <legend class="legend-search" aria-hidden="true">
                 Buscar Pratos
@@ -57,7 +57,13 @@
               </label>
             </fieldset>
           </form>
-          <nav class="navigation">
+          <button class="button-hamburguer" aria-hidden="true" aria-controls="controls-navigation" aria-expanded="false">
+            <svg stroke="var(--button-color)" fill="none" class="hamburger" viewBox="-10 -10 120 120" width="42">
+              <path class="line" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70">
+              </path>
+            </svg>
+          </button>
+          <nav class="navigation" id="controls-navigation" >
             <span class="cart">
               <span class="quantity">0</span>
             </span>
