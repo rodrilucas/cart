@@ -104,34 +104,22 @@ const products = [
 document.addEventListener("DOMContentLoaded", () => {
   const cart = [];
 
-  class Actions {
+  class ActionsCart {
     constructor() {
       this._modal = document.querySelector(".modal");
       this._cart = document.querySelector(".cart-container");
     }
 
-    openModal() {
-      this._modal.classList.remove("hidden");
-      this._ariaHidden(false);
-    }
-
     openCart() {
       this._cart.classList.remove("hidden");
       this._cart.classList.add("animation-cart");
-    }
-
-    closeModal() {
-      this._modal.classList.add("hidden");
-      this._ariaHidden(true);
+      this._ariaHiddenCart(true);
     }
 
     closeCart() {
+      this._cart.classList.remove("animation-cart");
       this._cart.classList.add("hidden");
-      this._cart.classList.remove("animation-cart")
-    }
-
-    _ariaHidden(openClose) {
-      this._modal.setAttribute("aria-hidden", openClose);
+      this._ariaHiddenCart(false);
     }
 
     _ariaHiddenCart(value) {
@@ -139,9 +127,117 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  class ActionsModal {
+    constructor() {
+      this._modal = document.querySelector(".modal");
+    }
+
+    openModal() {
+      this._modal.classList.remove("hidden");
+      this._ariaHiddenModal(false);
+    }
+
+    closeModal() {
+      this._modal.classList.add("hidden");
+      this._ariaHiddenModal(true);
+    }
+
+    _ariaHiddenModal(openClose) {
+      this._modal.setAttribute("aria-hidden", openClose);
+    }
+  }
+
+  class ActionsMenu {
+    constructor() {
+      this._form = document.querySelector(".form-search");
+      this._btnHamburguer = document.querySelector(".button-hamburguer");
+      this._navigation = document.querySelector(".navigation");
+      this._animationMenu = document.querySelector(".right");
+    }
+
+    _addAttribute(element, attribute, value) {
+      element.setAttribute(attribute, value);
+    }
+
+    _removeOrAddClass(element, className) {
+      element.classList.toggle(className);
+    }
+
+    addAnimationHamburguer() {
+      this._addAttribute(this._btnHamburguer, "data-state", "opened");
+      this._addAttribute(this._btnHamburguer, "aria-expanded", "true");
+    }
+
+    removeAnimationHamburguer() {
+      this._addAttribute(this._btnHamburguer, "data-state", "closed");
+      this._addAttribute(this._btnHamburguer, "aria-expanded", "false");
+    }
+
+    showMenuMobile(ariaExpanded = "true") {
+      this._addAttribute(this._form, "aria-expanded", ariaExpanded);
+      this._removeOrAddClass(this._form, "hidden");
+      this._removeOrAddClass(this._form, "animation-cart");
+
+      this._addAttribute(this._btnHamburguer, "aria-hidden", false);
+
+      this._addAttribute(this._navigation, "aria-expanded", ariaExpanded);
+      this._removeOrAddClass(this._navigation, "hidden");
+      this._removeOrAddClass(this._navigation, "animation-cart");
+    }
+  }
+
+  class MenuMobile extends ActionsMenu {
+    constructor() {
+      super();
+      this._form = document.querySelector(".form-search");
+      this._navigation = document.querySelector(".navigation");
+      this._btnHamburguer = document.querySelector(".button-hamburguer");
+      this._topMenu = document.querySelector(".header-top");
+
+      this.checkScreenSizeAndAddClassMenuMobile =
+        this.checkScreenSizeAndAddClassMenuMobile.bind(this);
+
+      window.addEventListener(
+        "load",
+        this.checkScreenSizeAndAddClassMenuMobile
+      );
+      window.addEventListener(
+        "resize",
+        this.checkScreenSizeAndAddClassMenuMobile
+      );
+
+      window.addEventListener('scroll', () =>{    
+        if (window.scrollY > 0) {
+          this._topMenu.classList.add("fixed-menu")
+        } else {
+          this._topMenu.classList.remove('fixed-menu');
+        }
+      });
+
+      this._btnHamburguer.addEventListener("click", () => {
+        const currentState = this._btnHamburguer.getAttribute("data-state");
+        if (!currentState || currentState === "closed") {
+          this.addAnimationHamburguer();
+          this.showMenuMobile();
+        } else {
+          const ariaExpanded = false;
+          this.removeAnimationHamburguer();
+          this.showMenuMobile(ariaExpanded);
+        }
+      });
+    }
+
+    checkScreenSizeAndAddClassMenuMobile() {
+      const isMobileSize = window.innerWidth <= 992;
+      this._btnHamburguer.classList.toggle("hidden", !isMobileSize);
+      this._btnHamburguer.setAttribute("aria-hidden", !isMobileSize);
+      this._form.classList.toggle("hidden", isMobileSize);
+      this._navigation.classList.toggle("hidden", isMobileSize);
+    }
+  }
+
   class CreateElements {
     constructor() {}
-
     createElement(element) {
       const { type, className, text, innerHTML } = element;
       const createElement = document.createElement(type);
@@ -160,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     constructor() {
       super();
       this._modal = document.querySelector(".modal");
-      this._modalActions = new Actions();
+      this._modalActions = new ActionsModal();
     }
 
     modalSuccessAddProductToCart(product) {
@@ -214,7 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `;
-      
+
       divModal.prepend(imagePicture);
       divModal.append(button);
       divModal.append(addSuccess);
@@ -259,24 +355,26 @@ document.addEventListener("DOMContentLoaded", () => {
     constructor() {
       super();
       this._container = document.querySelector(".container");
+
       this._cartList = document.querySelector(".cart-list");
       this._cartValueTotal = document.querySelector(".cart-value__total");
       this._cartQuantity = document.querySelector(".cart-quantity");
       this._cart = document.querySelector(".cart-container");
+
       this._btnCartClose = document.querySelector(".cart-close");
       this._btnOpenCart = document.querySelector("span.cart");
-      this._modal = new Modal();
-      this._actionsCart = new Actions();
-      this._calculate = new Calculate();
 
-      this._btnCartClose.addEventListener("click", () => {
-        this._actionsCart.closeCart();
-        this._actionsCart._ariaHiddenCart(true);
-      });
+      this._modal = new Modal();
+      this._actionsCart = new ActionsCart();
+      this._calculate = new Calculate();
+      this._menuMobile = new MenuMobile();
 
       this._btnOpenCart.addEventListener("click", () => {
         this._actionsCart.openCart();
-        this._actionsCart._ariaHiddenCart(false);
+      });
+
+      this._btnCartClose.addEventListener("click", () => {
+        this._actionsCart.closeCart();
       });
 
       document.addEventListener(
@@ -287,7 +385,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           if (!this._cart.contains(event.target)) {
             this._actionsCart.closeCart();
-            this._actionsCart._ariaHiddenCart(true);
           }
         },
         true
