@@ -16,7 +16,7 @@ Clone o repositório e abra o arquivo `index.html` em um navegador:
 
 ```sh
 # Clone o repositório
-git clone https://github.com/seu-usuario/carrinho-compras.git
+git clone https://github.com/seu-usuario/cart.git
 
 # Acesse a pasta do projeto
 cd cart
